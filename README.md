@@ -18,8 +18,9 @@ half_add_sub.v	Arithmetic-circuit RTL
 half_add_sub_tb.v	Stimulus and VCD generation
 
 ###Verilog Program
-```module half_adder (
-input  wire A,
+```// gedit half_add_sub.v
+module half_adder (
+    input  wire A,
     input  wire B,
     output wire Sum,
     output wire Carry
@@ -35,7 +36,9 @@ module half_subtractor (
     output wire Borrow
 );
     assign Diff   = A ^ B;      // XOR
-    assign Borrow = (~A) & B;  
+    assign Borrow = (~A) & B;  // A' . B
+endmodule
+
 
 
     
@@ -43,6 +46,7 @@ module half_subtractor (
 
 ```
 ### Testbench Program
+// gedit tb3.v
 module tb3;
     reg A, B;
     wire Sum, Carry;
@@ -80,6 +84,7 @@ module tb3;
         #10 $finish;
     end
 endmodule
+
 
 
 ### Truth Table
@@ -134,6 +139,8 @@ o	Borrow
 The waveform should agree with the truth table.
 
 ### Expected Result
+<img width="1920" height="1080" alt="Screenshot (13)" src="https://github.com/user-attachments/assets/984f432c-6825-41e7-8c5e-1e1ff771476c" />
+
 
 The Half Adder and Half Subtractor were realized using Verilog HDL:
 
@@ -143,14 +150,14 @@ The Half Adder and Half Subtractor were realized using Verilog HDL:
 The design was compiled and simulated using Synopsys VCS, and the functionality was verified using DVE waveform analysis, matching the expected truth table.
 
 ### Output
-<img width="1920" height="1080" alt="Screenshot (13)" src="https://github.com/user-attachments/assets/984f432c-6825-41e7-8c5e-1e1ff771476c" />
+<img width="1920" height="1080" alt="Screenshot (14)" src="https://github.com/user-attachments/assets/65c54c34-bab5-4300-a482-24bc41cc0dec" />
+<img width="1920" height="1080" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/11aa6791-ac50-4014-8190-c2d546de3433" />
 
 
 
 
 ### Result
-<img width="1920" height="1080" alt="Screenshot (14)" src="https://github.com/user-attachments/assets/65c54c34-bab5-4300-a482-24bc41cc0dec" />
-<img width="1920" height="1080" alt="Screenshot (15)" src="https://github.com/user-attachments/assets/11aa6791-ac50-4014-8190-c2d546de3433" />
+
 
 Thus, the Half Adder and Half Subtractor were designed, implemented using Verilog HDL, successfully simulated using Synopsys VCS, and verified using Synopsys DVE.
 
